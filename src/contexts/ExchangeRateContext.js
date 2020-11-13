@@ -10,8 +10,19 @@ export const ExchangeRateContext = createContext(ExchangeRateContextValue);
 
 export function ExchangeRateContextProvider(props) {
     const [data, setData] = useState([]);
-
-    const [searchDate, setsearchDate] = useState('2020-11-11');
+    const today = new Date();
+    var year = today.getFullYear();
+    var month = today.getMonth()+1
+    var day = today.getDate();
+    if(month < 10){
+        month = "0"+month;
+    }
+    if(day < 10){
+        day = "0"+day;
+    } 
+    var today_parsed = year+""+month+""+day;
+    console.log("today",today_parsed);
+    const [searchDate, setsearchDate] = useState(today_parsed);
     const handleDateChange = ev=>setsearchDate(ev.target.value.replaceAll("-",""));
 
     useEffect(()=>{
