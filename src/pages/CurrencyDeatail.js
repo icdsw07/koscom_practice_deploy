@@ -10,21 +10,38 @@ function CurrencyDetail(props) {
         props.match.params.currencyCode
     );
     console.log('currencyDetail', currencyDetail);
-    let key1 = Object.keys(currencyDetail);
+    var json = JSON.stringify(currencyDetail);
+    var json_obj = JSON.parse(json);
+    let key1 = Object.keys(json_obj);
     console.log('key', key1);
+
+    const listItems = key1.map((k)=>    
+
+    <tr> 
+        <td>   
+        {k}
+        </td>
+        <td>
+        {currencyDetail[k]}
+        </td>
+    </tr>
+   
+    );
+    
     return (
         <div>
-         {key1[0]} : {currencyDetail.key1[0]}
-         이름: {currencyDetail.cur_nm}
-         <br/>
-         bkpr: {currencyDetail.bkpr}
-         <br/>
-         deal_bas_r: {currencyDetail.deal_bas_r}
-         <br/>
-         kftc_bkpr: {currencyDetail.kftc_bkpr}
-         <br/>
-         kftc_deal_bas_r: {currencyDetail.kftc_deal_bas_r} 
-
+    
+    <table border ="1px solid">
+        <tr>
+            <th>
+                KEY
+            </th>
+            <th>
+                VALUE
+            </th>
+        </tr>
+            {listItems}
+            </table> 
         </div>
     );
 }
