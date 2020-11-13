@@ -8,7 +8,7 @@ const requestOption = {
     uri: 'https://www.koreaexim.go.kr/site/program/financial/exchangeJSON',
     qs: {
         authkey: authKey,
-        searchdate: date,
+        searchate: date,
         data: 'AP01',
     }
 }
